@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #688272;
+    --secondary: #262626;
+    --secondaryText: #717171;
+}
+
+.base-btn {
+    @apply py-2 px-3 transition;
+}
+
+.btn {
+    @apply text-white hover:bg-primary base-btn;
+}
+
+.btn-text {
+    @apply text-primary font-medium text-sm hover:underline;
+}
+
+.btn-primary {
+    @apply text-white rounded-3xl px-4 py-2 font-[500];
+}
+
+.btn-secondary {
+    @apply base-btn rounded-3xl text-base hover:bg-primary hover:text-white;
+}
+.btn-dropdown {
+    @apply bg-primary bg-opacity-10 p-2 rounded-[50%];
+}
+
+.btn-border {
+    @apply base-btn border border-primary rounded-full text-primary hover:bg-primary hover:text-white;
+}
+.textarea {
+    @apply border rounded-xl p-2 block w-full focus:outline-none;
+}
+
+.dropdown-item {
+    @apply w-full py-1 px-2 rounded flex items-center gap-3 hover:bg-primary hover:bg-opacity-10;
+}
+
+.h2 {
+    @apply text-3xl capitalize font-bold;
+}
+
+.overlay-fixed {
+    @apply fixed inset-0 w-full h-full;
+}
+
+.segment {
+    @apply rounded-lg border shadow-sm border-gray-100;
+}
+
+.bordered-segment {
+    @apply border rounded-xl border-gray-100 p-4;
+}
+
+.flex-center {
+    @apply flex items-center justify-center;
+}
+
+/* @ Fix Styles */
+/* Hide the increment and decrement arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.react-checkbox-tree label:active,
+.react-checkbox-tree label:hover,
+.react-checkbox-tree label:focus {
+    background-color: #6882722a !important;
+}
+
+.rc-slider-handle-dragging {
+    border-color: #688272 !important;
+    box-shadow: 0 0 0 5px #688272 !important;
+}
+
+.animate-bubble {
+    animation: bubble 1s infinite;
+}
+
+@keyframes bubble {
+    0% {
+        transform: scale(1);
+        border: 1px solid red;
+    }
+    50% {
+        transform: scale(1.05);
+        border: 1px solid green;
+    }
+    100% {
+        border: 1px solid peru;
+        transform: scale(1);
+    }
+}

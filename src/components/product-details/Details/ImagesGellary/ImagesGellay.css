@@ -1,0 +1,57 @@
+/* Horizontal Navigation Styles */
+.swiperdetails-button-next,
+.swiperdetails-button-prev {
+	position: absolute;
+	width: 25px;
+	height: 25px;
+	z-index: 1;
+	background-color: #fff;
+	display: grid;
+	place-content: center;
+	border-radius: 50%;
+	cursor: pointer;
+	color: var(--primary);
+	transition: 0.2s;
+}
+
+.swiperdetails-button-next:hover,
+.swiperdetails-button-prev:hover {
+	background-color: var(--primary);
+	color: #fff;
+}
+
+.swiper-button-disabled {
+	opacity: 0;
+}
+
+.swiper-horizontal .swiperdetails-button-next,
+.swiper-horizontal .swiperdetails-button-prev {
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.swiper-horizontal .swiperdetails-button-next {
+	right: 10px; /* Adjust the positioning */
+}
+
+.swiper-horizontal .swiperdetails-button-prev {
+	left: 10px; /* Adjust the positioning */
+}
+
+/* Vertical Navigation Styles */
+.swiper-vertical .swiperdetails-button-next,
+.swiper-vertical .swiperdetails-button-prev {
+	left: 50%;
+	transform: translateX(-50%);
+}
+.swiper-vertical .swiperdetails-button-prev {
+	top: 10px; /* Adjust the positioning */
+}
+.swiper-vertical .swiperdetails-button-next {
+	bottom: 10px; /* Adjust the positioning */
+}
+
+.swiper-vertical .swiperdetails-button-prev svg,
+.swiper-vertical .swiperdetails-button-next svg {
+	transform: rotate(90deg);
+}
