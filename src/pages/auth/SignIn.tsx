@@ -10,17 +10,29 @@ import { Form, Formik } from "formik";
 import { UserValidation } from "../../utils/validations/user";
 import ErrorText from "../../components/common/Form/ErrorText";
 import { useState } from "react";
+import { InferType } from "yup";
+import { useAppDispatch } from "../../store";
+import { login } from "../../store/auth/auth-slice";
+
+const schema = UserValidation.SIGNIN;
 
 const SignIn = () => {
+    const dispatch = useAppDispatch();
     const [isStayLogged, setIsStayLogged] = useState<boolean>(false);
+
+    const onSubmit = (values: InferType<typeof schema>) => {
+        console.log({ ...values, isStayLogged });
+        dispatch(login());
+    };
+
     return (
         <>
             <Head title="Sign In" />
             <FormSide description="Welcome back. Please Enter Your Details" title="Sign In">
                 <Formik
-                    validationSchema={UserValidation.SIGNIN}
+                    validationSchema={schema}
                     initialValues={{ email: "", password: "" }}
-                    onSubmit={(values) => console.log({ ...values, isStayLogged })}
+                    onSubmit={onSubmit}
                 >
                     {(props) => (
                         <Form>

@@ -5,12 +5,14 @@ import productSlice from "./products/product-slice";
 import cartSlice from "./cart/cart-slice";
 import ordersSlice from "./orders/orders-slice";
 import favouriteSlice from "./favourites/favourite-slice";
+import authSlice from "./auth/auth-slice";
 
 const reducer = {
     products: productSlice,
     cart: cartSlice,
     orders: ordersSlice,
     favourites: favouriteSlice,
+    auth: authSlice,
 };
 
 export const store = configureStore({

@@ -12,6 +12,8 @@ import { Link } from "react-router-dom";
 import GenderSelect from "../../components/common/Form/Select/GenderSelect";
 import { GenderEnum } from "../../constants/enums";
 import PhoneInput from "../../components/common/Form/PhoneInput";
+import { useAppDispatch } from "../../store";
+import { login } from "../../store/auth/auth-slice";
 
 type FormInitType = InferType<typeof UserValidation.SIGNUP>;
 
@@ -29,6 +31,7 @@ const initialValues: FormInitType = {
 };
 
 const SignUp = () => {
+    const dispatch = useAppDispatch();
     return (
         <>
             <Head title="Sign Up" />
@@ -38,6 +41,7 @@ const SignUp = () => {
                     initialValues={initialValues}
                     onSubmit={(values, formik) => {
                         console.log({ ...values });
+                        dispatch(login());
                         formik.resetForm();
                     }}
                 >

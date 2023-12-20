@@ -14,7 +14,7 @@ function App() {
         <Provider store={store}>
             <HelmetProvider>
                 <BrowserRouter>
-                    <CustomRouter user={true} />
+                    <CustomRouter />
                     <Toast />
                 </BrowserRouter>
             </HelmetProvider>

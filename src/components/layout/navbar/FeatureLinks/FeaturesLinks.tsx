@@ -6,18 +6,21 @@ import { useState } from "react";
 import SearchModalContent from "../Search";
 import { CHAIR_IMG1 } from "../../../../constants/images";
 import Avatar from "../../../common/Avatar";
-import { useAppSelector } from "../../../../store";
+import { useAppDispatch, useAppSelector } from "../../../../store";
 import Badge from "../../../common/Messages/Badge";
+import IconCircleButton from "../../../common/Button/CircleIcon";
+import { BiLogIn } from "react-icons/bi";
+import { logout } from "../../../../store/auth/auth-slice";
+import UnAuthButtons from "./UnAuthButtons";
 
 const FeaturesLinks = () => {
     const { cart } = useAppSelector((state) => state.cart);
+    const { isAuth } = useAppSelector((state) => state.auth);
     const { favourites } = useAppSelector((state) => state.favourites);
+    const dispatch = useAppDispatch();
     const [searchModal, setSearchModal] = useState<boolean>(false);
     const linkClassname: NavLinkProps["className"] = ({ isActive }) =>
         `btn rounded-full text-xl relative ${isActive ? "bg-primary text-white" : ""}`;
-
-    // FIXME testing
-    const user: boolean = false;
 
     return (
         <>
@@ -34,28 +37,22 @@ const FeaturesLinks = () => {
                     <FiHeart className="align-middle" />
                 </NavLink>
                 <span className="h-5 bg-white w-[1px] block" />
-                {!user ? (
+                {!isAuth ? (
+                    <UnAuthButtons />
+                ) : (
                     <>
                         <Link
-                            to={ROUTES.auth.sign_in}
-                            className="text-white font-[500] hover:bg-primary transition btn-primary"
+                            to={ROUTES.user.profile}
+                            className="flex space-x-2 items-center py-1 px-1.5 rounded-full hover:bg-white group transition"
                         >
-                            Sign In
+                            <Avatar src={CHAIR_IMG1} className="w-6 h-6" />
+                            <p className="max-w-[110px] truncate capitalize text-white group-hover:text-primary transition">
+                                Amr Mohamed
+                            </p>
                         </Link>
-                        <Link to={ROUTES.auth.sign_up} className="btn-primary bg-primary ">
-                            Sign Up
-                        </Link>
+
+                        <IconCircleButton icon={<BiLogIn />} onClick={() => dispatch(logout())} />
                     </>
-                ) : (
-                    <Link
-                        to={ROUTES.user.profile}
-                        className="flex space-x-2 items-center py-1 px-1.5 rounded-full hover:bg-white group transition"
-                    >
-                        <Avatar src={CHAIR_IMG1} className="w-6 h-6" />
-                        <p className="max-w-[110px] truncate capitalize text-white group-hover:text-primary transition">
-                            Amr Mohamed
-                        </p>
-                    </Link>
                 )}
             </div>
             <SearchModalContent isOpen={searchModal} setIsOpen={setSearchModal} />
