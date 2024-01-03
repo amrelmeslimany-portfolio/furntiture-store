@@ -4,6 +4,7 @@ import SignIn from "./auth/SignIn.tsx";
 import SignUp from "./auth/SignUp.tsx";
 import VerificationCode from "./auth/VerificationCode.tsx";
 import ForgotPassword from "./auth/ForgotPassword.tsx";
+
 // @pages Shop
 import Shop from "./shop";
 import ProductDetails from "./shop/ProductDetails.tsx";
@@ -21,6 +22,9 @@ import Settings from "./profile/Settings.tsx";
 import Addresses from "./profile/Addresses.tsx";
 import Password from "./profile/Password.tsx";
 import Error404 from "./404.tsx";
+
+// @pages Admin Dashboard
+import AdminHome from "./admin/Home.tsx";
 
 export {
     Home,
@@ -42,4 +46,5 @@ export {
     VerificationCode,
     ForgotPassword,
     Error404,
+    AdminHome,
 };

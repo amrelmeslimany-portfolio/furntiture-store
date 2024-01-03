@@ -47,6 +47,10 @@
     @apply text-3xl capitalize font-bold;
 }
 
+.number {
+    @apply block mb-2 mt-1 text-3xl font-semibold;
+}
+
 .overlay-fixed {
     @apply fixed inset-0 w-full h-full;
 }

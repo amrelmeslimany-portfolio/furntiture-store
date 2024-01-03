@@ -31,6 +31,16 @@ export const ROUTES = {
         addresses: "/profile/addresses",
         password: "/profile/password",
     },
+    admin: {
+        home: "/admin",
+        users: "/admin/users",
+        categories: "/admin/categories",
+        products: "/admin/products",
+        reviews: "/admin/reviews",
+        orders: "/admin/orders",
+        stats: "/admin/stats",
+        settings: "/admin/settings",
+    },
 };
 
 export const MAIN_ROUTES_ICONS: { [key: string]: IconType } = {

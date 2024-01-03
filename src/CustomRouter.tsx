@@ -21,11 +21,13 @@ import {
     VerificationCode,
     ForgotPassword,
     Error404,
+    AdminHome,
 } from "./pages";
 import AuthLayout from "./layouts/AuthLayout";
 import Protect from "./pages/guard/Protect";
 import { useAppSelector } from "./store";
 import Redirect from "./pages/guard/Redirect";
+import AdminLayout from "./layouts/AdminLayout";
 
 const CustomRouter = () => {
     const { isAuth } = useAppSelector((state) => state.auth);
@@ -67,6 +69,10 @@ const CustomRouter = () => {
 
                 {/* @page: 404 */}
                 <Route path="/*" element={<Error404 />} />
+            </Route>
+            {/* @pages: Admin */}
+            <Route path={ROUTES.admin.home} element={<AdminLayout />}>
+                <Route index element={<AdminHome />} />
             </Route>
         </Routes>
     );
