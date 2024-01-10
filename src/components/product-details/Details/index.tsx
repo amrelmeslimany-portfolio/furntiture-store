@@ -12,6 +12,7 @@ import ProductRooms from "../../product/ProductRooms";
 import { RoomsEnum } from "../../../constants/enums/furniture";
 import { ProductCategriedInterface } from "../../../interfaces/products";
 import { useAppSelector } from "../../../store";
+import { EProductStatus } from "../../../constants/enums";
 
 const Description: string = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur deleniti placeat esse labore fuga ducimus suscipit nisi
 optio rem. Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Consequuntur Deleniti Placeat Esse Labore Fuga Ducimus Suscipit Nisi Optio Rem.Lorem Ipsum Dolor Sit Amet Consectetur Adipisicing Elit. Consequuntur Deleniti Placeat Esse Labore Fuga Ducimus Suscipit Nisi Optio Rem.Lorem Ipsum`;
@@ -22,15 +23,21 @@ const isLongDescription: boolean = Description.length > SLICE_SIZE;
 
 type Props = {
     product: ProductCategriedInterface;
+    isAdmin?: boolean;
 };
 
-const Details = ({ product }: Props) => {
+const Details = ({ product, isAdmin }: Props) => {
     const { cart } = useAppSelector((state) => state.cart);
     const [isMoreDescription, setisMoreDescription] = useState(isLongDescription);
     return (
         <div className="flex gap-5 my-5 max-sm:flex-col">
             <ImagesGellary />
             <div className="flex-1">
+                {isAdmin && (
+                    <span className="block mb-2 w-fit p-1 text-sm bg-red-50 text-red-500">
+                        {EProductStatus.Hidden}
+                    </span>
+                )}
                 <h2 className="h2">Product Chair With 2xl Woozers</h2>
                 {/* This will be link for reviews */}
                 <div className="flex items-center gap-1 mt-1 mb-4">
@@ -74,27 +81,42 @@ const Details = ({ product }: Props) => {
                             label="discount"
                             value="-10%"
                         />
-                        <ShippingItem
-                            Icon={FiHeart}
-                            className="text-red-500"
-                            label="Favourites"
-                            value="50 customers"
-                        />
-                        <ShippingItem
-                            Icon={FiDollarSign}
-                            className="text-green-500"
-                            label="Payment Method"
-                            value="Online"
-                        />
+                        {!isAdmin && (
+                            <>
+                                {" "}
+                                <ShippingItem
+                                    Icon={FiHeart}
+                                    className="text-red-500"
+                                    label="Favourites"
+                                    value="50 customers"
+                                />
+                                <ShippingItem
+                                    Icon={FiDollarSign}
+                                    className="text-green-500"
+                                    label="Payment Method"
+                                    value="Online"
+                                />
+                            </>
+                        )}
                     </div>
                 </article>
-                <hr className="border-gray-100 my-4 max-sm:hidden" />
-                {/* FIXME handle this params */}
-                <DetailsActions
-                    isInCart={Boolean(cart.find(({ id }) => id == product.id))}
-                    product={product}
-                    isShare={true}
-                />
+                {!isAdmin && (
+                    <>
+                        {" "}
+                        <hr className="border-gray-100 my-4 max-sm:hidden" />
+                        {/* FIXME handle this params */}
+                        <DetailsActions
+                            isInCart={Boolean(cart.find(({ id }) => id == product.id))}
+                            product={product}
+                            isShare={true}
+                        />
+                    </>
+                )}
+                {isAdmin && (
+                    <p className="text-sm mt-4">
+                        <span className="text-secondaryText">Added:</span> <b>20-02-2020 05:30am</b>
+                    </p>
+                )}
             </div>
         </div>
     );

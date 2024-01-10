@@ -36,6 +36,7 @@ export const ROUTES = {
         users: "/admin/users",
         categories: "/admin/categories",
         products: "/admin/products",
+        productsdetails: "/admin/products/details",
         reviews: "/admin/reviews",
         orders: "/admin/orders",
         stats: "/admin/stats",

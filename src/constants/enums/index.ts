@@ -73,3 +73,14 @@ export enum RatingCategorysEnum {
     SizeAndFit = "Size & Fit",
     Comfort = "Comfort",
 }
+
+export enum EProductStatus {
+    Hidden = "Hide",
+    Normal = "Normal",
+    Discount = "Discount",
+}
+
+export enum EActions {
+    New = "new",
+    Edit = "edit",
+}

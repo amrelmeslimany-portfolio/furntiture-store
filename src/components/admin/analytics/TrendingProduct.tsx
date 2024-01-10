@@ -10,7 +10,7 @@ const TrendingProduct = () => {
         <Card className="p-4 mt-4">
             <TitleHeader isH6 title="Trending Product" children={""} />
             <div className="flex gap-4 mt-4 mb-2 items-center">
-                <div className="flex-1 flex gap-4 items-center">
+                <div className="flex-1 flex gap-4 items-center flex-wrap">
                     <img
                         src={CHAIR_IMG1}
                         loading="lazy"
@@ -19,14 +19,10 @@ const TrendingProduct = () => {
                     />
 
                     <article>
-                        <h6 className="text-lg">Product Name</h6>
+                        <h6 className="text-lg truncate">Product Name</h6>
                         <OneStarRate rate={4} />
+                        <PercentStatus percent={{ value: 1.2, isUp: true }} />
                     </article>
-
-                    <PercentStatus
-                        className="ms-10 flex-1 w-full justify-center"
-                        percent={{ value: 1.2, isUp: true }}
-                    />
                 </div>
                 <p className="text-lg flex-shrink-0">
                     <span className="font-semibold">456</span>

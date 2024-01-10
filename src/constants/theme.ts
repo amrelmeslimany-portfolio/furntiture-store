@@ -1,6 +1,6 @@
 import { ActionsThemeType } from "../interfaces";
 import { CustomerRequestsThemeType } from "../interfaces/customer";
-import { ActionsEnum, CustomerRequestsEnum } from "./enums";
+import { ActionsEnum, CustomerRequestsEnum, EProductStatus } from "./enums";
 import { FiBox, FiHeart, FiShoppingCart } from "react-icons/fi";
 
 export const MAIN_COLORS = {
@@ -36,4 +36,10 @@ export const CustomerRequestsIcons: CustomerRequestsThemeType = {
     [CustomerRequestsEnum.Order]: {
         icon: FiBox,
     },
+};
+
+export const ProductStatusColors: { [key in EProductStatus]: { text: string; bg: string } } = {
+    [EProductStatus.Discount]: { text: "text-yellow-500", bg: "bg-yellow-50" },
+    [EProductStatus.Hidden]: { text: "text-red-600", bg: "bg-red-50" },
+    [EProductStatus.Normal]: { text: "text-green-500", bg: "bg-green-50" },
 };

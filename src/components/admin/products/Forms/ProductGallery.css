@@ -1,0 +1,28 @@
+.filepond--panel-root {
+    background-color: transparent !important;
+}
+
+.filepond--root .filepond--drop-label {
+    height: auto;
+    min-height: auto;
+    background-color: #6882720d;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.iserror .filepond--root .filepond--drop-label {
+    border: 1px solid red;
+}
+
+.filepond--drop-label.filepond--drop-label label {
+    color: #688272;
+}
+
+.filepond--list.filepond--list {
+    top: 10px;
+    display: flex;
+}
+
+.filepond--list.filepond--list .filepond--item {
+    width: 142px;
+}

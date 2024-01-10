@@ -9,7 +9,7 @@ type PropsType = {
 };
 const TitleHeader = ({ title, className, children, isH5, isH6 }: PropsType) => {
     return (
-        <div className={`flex justify-between items-center ${className || ""}`}>
+        <div className={`flex justify-between items-center capitalize ${className || ""}`}>
             {isH6 && <h6 className="text-lg font-medium">{title}</h6>}
             {isH5 && <h4 className="text-xl font-medium leading-tight">{title}</h4>}
             {!isH5 && !isH6 && <h3 className="text-2xl font-medium">{title}</h3>}

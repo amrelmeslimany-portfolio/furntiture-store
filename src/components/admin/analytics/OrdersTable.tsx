@@ -68,7 +68,7 @@ const OrdersTable = () => {
                         ${item.status == OrdersStatusEnum.Pending && "bg-orange-50"}
                     `}
                     >
-                        <td className="px-4 py-2.5 rounded-s-full font-medium ">{item.profile}</td>
+                        <td className="px-4 py-2.5 rounded-s-full font-medium truncate">{item.profile}</td>
                         <td className="px-4 py-2.5">{item.address}</td>
                         <td className="px-4 py-2.5">{item.date}</td>
                         <td className="px-4 py-2.5">{item.status}</td>

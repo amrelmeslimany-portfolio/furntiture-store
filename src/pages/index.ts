@@ -25,6 +25,9 @@ import Error404 from "./404.tsx";
 
 // @pages Admin Dashboard
 import AdminHome from "./admin/Home.tsx";
+import AdminProducts from "./admin/Products";
+import ProductForm from "./admin/Products/Form.tsx";
+import AdminProductDetails from "./admin/Products/Details.tsx";
 
 export {
     Home,
@@ -47,4 +50,7 @@ export {
     ForgotPassword,
     Error404,
     AdminHome,
+    AdminProducts,
+    ProductForm,
+    AdminProductDetails,
 };

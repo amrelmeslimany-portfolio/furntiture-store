@@ -22,6 +22,9 @@ import {
     ForgotPassword,
     Error404,
     AdminHome,
+    AdminProducts,
+    ProductForm,
+    AdminProductDetails,
 } from "./pages";
 import AuthLayout from "./layouts/AuthLayout";
 import Protect from "./pages/guard/Protect";
@@ -73,6 +76,11 @@ const CustomRouter = () => {
             {/* @pages: Admin */}
             <Route path={ROUTES.admin.home} element={<AdminLayout />}>
                 <Route index element={<AdminHome />} />
+                <Route path={ROUTES.admin.products}>
+                    <Route index element={<AdminProducts />} />
+                    <Route path={ROUTES.admin.products + "/:action"} element={<ProductForm />} />
+                    <Route path={ROUTES.admin.productsdetails + "/:id"} element={<AdminProductDetails />} />
+                </Route>
             </Route>
         </Routes>
     );

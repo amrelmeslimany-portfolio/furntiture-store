@@ -54,7 +54,9 @@ const StarsStatistics: { title: number; value: number }[] = _.rangeRight(1, 6).m
     value: title * 18,
 })); // FIXME fetch from server
 
-const Reviews = () => {
+type Props = { isAdmin?: boolean };
+
+const Reviews = ({ isAdmin }: Props) => {
     return (
         <div className="py-5  border-gray-100">
             <h3 className="text-2xl capitalize font-medium mb-4">Reviews</h3>
@@ -106,12 +108,13 @@ const Reviews = () => {
                         {reviewsData.map((review, index) => (
                             <CustomerReview
                                 key={v4()}
+                                isAdmin={isAdmin}
                                 isLast={index == reviewsData.length - 1}
                                 review={review}
                             />
                         ))}
                     </ul>
-
+                    {/* FIXME When Admin , Getting all unaccepted reviews */}
                     {/* See More Button */}
                     <div className="text-center mt-5">
                         <button className="base-btn bg-primary/5 text-primary w-40">More</button>
